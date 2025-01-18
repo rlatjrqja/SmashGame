@@ -11,10 +11,13 @@ public class SmashTool : MonoBehaviour
     public float swing_speed;
     public float cool_down;
 
+    public BoxCollider bat_col;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        bat_col = GetComponentInChildren<BoxCollider>();
+        bat_col.enabled = false;
     }
 
     // Update is called once per frame
@@ -49,6 +52,7 @@ public class SmashTool : MonoBehaviour
     IEnumerator Swing(float speed)
     {
         state = State.Swing;
+        bat_col.enabled = true;
 
         while (transform.eulerAngles.y > -120f)
         {
@@ -82,6 +86,7 @@ public class SmashTool : MonoBehaviour
     IEnumerator Recharge(float speed)
     {
         state = State.Wait;
+        bat_col.enabled = false;
 
         while (true)
         {

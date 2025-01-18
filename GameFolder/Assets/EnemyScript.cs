@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float move_speed;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.Translate(0,0,-0.02f);
+        transform.Translate(0,0,-move_speed * Time.deltaTime);
     }
 }
