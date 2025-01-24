@@ -23,7 +23,8 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(Enemy,this.transform);
+            float x = Random.Range(-1.5f, 1.5f);
+            Instantiate(Enemy,this.transform.position + new Vector3(x,0,0), Quaternion.identity);
 
             if(false)
             {
